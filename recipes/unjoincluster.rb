@@ -4,7 +4,7 @@ key_name 	 = node[:zendserver][:apikeyname]
 key_secret       = node[:zendserver][:apikeysecret]
 hostname	 = !node[:opsworks][:instance][:hostname].nil? ? node[:opsworks][:instance][:hostname] : node[:hostname]
 
-node_id = get_node_id_by_name(node['hostname'], key_name, key_secret)
+node_id = get_node_id_by_name(hostname, key_name, key_secret)
 
 unjoin_command = "#{node[:zendserver][:zsmanage]} cluster-remove-server #{node_id} -N #{key_name} -K #{key_secret} -U http://#{node[:hostname]}:10081/ZendServer/ -s"
 
