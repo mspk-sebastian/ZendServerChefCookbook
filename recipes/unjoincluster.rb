@@ -1,7 +1,8 @@
 # Remoev a node from a cluster
 
 key_name 	 = node[:zendserver][:apikeyname]
-key_secret   = node[:zendserver][:apikeysecret]
+key_secret       = node[:zendserver][:apikeysecret]
+hostname	 = !node[:opsworks][:instance][:hostname].nil? ? node[:opsworks][:instance][:hostname] : default[:hostname]
 
 node_id = get_node_id_by_name(node['hostname'], key_name, key_secret)
 
