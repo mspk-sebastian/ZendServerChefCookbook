@@ -5,6 +5,7 @@ key_secret   = node[:zendserver][:apikeysecret]
 
 puts node
 puts "\n"
+exit
 
 node_id = get_node_id_by_name(node['hostname'], key_name, key_secret)
 
